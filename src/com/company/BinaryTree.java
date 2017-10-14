@@ -25,4 +25,7 @@ public class BinaryTree {
             parent.right = new_node;
         }
     }
+
 }
+
+
