@@ -507,6 +507,10 @@ public class Main {
 
     /**
      * Check if two strings are permutations of the other
+     *
+     * TODO: this approach doesn't  work bc you might have repeated characters
+     * ABCDD ABCD  their lengths are the same and their sets arre the same. Fix it later,
+     * a better approach might be to  sort them and compare them, this leads to N(logN) tough
      * @param A
      * @param B
      * @return
@@ -526,6 +530,27 @@ public class Main {
         }
 
         return oneSet.equals(twoSet);
+    }
+
+    public static int getNumberOfSteps(int steps){
+        if(steps <= 0 ) return 0;
+
+        if(steps == 1){
+            return 1;
+        }
+        if(steps == 2){
+            return 2;
+        }
+        if(steps == 3){
+            return 3;
+        }
+
+        int count = 0;
+
+        if(steps % 2 == 0 || steps% 3 == 0){
+            count = 1;
+        }
+        return getNumberOfSteps(steps-3)+getNumberOfSteps(steps-2)+getNumberOfSteps(steps-1)+count;
     }
 
     public static int getStates(String A, String B){
@@ -568,6 +593,8 @@ public class Main {
          * print(getStates("ab", "abc"));
          * print(isPermutation("ABCD", "DCBAA"));
          */
+
+            print(getNumberOfSteps(5));
 
 
 
