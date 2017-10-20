@@ -476,6 +476,58 @@ public class Main {
      */
 
 
+    /**
+     *  Given a string, determine if it contains unique characters without using a data structure
+     * @param A
+     * @param B
+     * @return
+     */
+
+    public static boolean containsUniqueChars(String str){
+
+        int len = str.length();
+        boolean array [] = new boolean[27];
+
+        for(int i=0; i < len; i++){
+            if(str.charAt(i) == ' '){
+                continue;
+            }
+            int index = ((int) str.charAt(i))%27;
+
+            if(array[index] == true){
+                return true;
+            }else{
+                array[index] = true;
+            }
+        }
+
+        return false;
+
+    }
+
+    /**
+     * Check if two strings are permutations of the other
+     * @param A
+     * @param B
+     * @return
+     */
+    public static boolean isPermutation(String str1, String str2){
+        int len1 = str1.length();
+        int len2 = str1.length();
+
+        if(len1 != len2) return  false;
+
+        Set<Character> oneSet = new HashSet<>();
+        Set<Character> twoSet = new HashSet<>();
+
+        for(int i = 0; i < len1; i++){
+            oneSet.add(str1.charAt(i));
+            twoSet.add(str2.charAt(i));
+        }
+
+        return oneSet.equals(twoSet);
+    }
+
     public static int getStates(String A, String B){
         int overlap = getOverlapLength(A,B);
         if(overlap == -1){
@@ -508,159 +560,18 @@ public class Main {
     }
     public static void main(String[] args) {
 
-
-        print("Largest path is: " + findLargestPath());
-//        print(getOverlapLength("abcd", "cda"));
-//        print(getOverlapLength("ABCDEF", "BCDEFASFDSADF"));
-
-       // print(getStates("ab", "abc"));
-
-
-
-
-
-      //  BinaryMinHeap
-     //   HashMapUsage();
-     //   HashTableUsage();
-        // --> QueueUsage();
-        // --> PriorityQueueUsage();
-
-
-       // BinaryTreeUsage();
-
-
-        //System.out.println(Arrays.deepToString(myset.toArray()));
-//        List<Node> list = new ArrayList<>();
-//
-//        list.add(new Node(4,null));
-//        list.add(new Node(6, null));
-//        list.add(new Node(2,null));
-//        list.add(new Node(8,null));
-//
-//        System.out.println(list.size());
-//        printArrayList(list);
-//        System.out.println(list.get(0).data);
-//        list.remove(0);
-//        list.remove(0);
-//        printArrayList(list);
-//
-//        System.out.println(list.size());
-//        list.set(0, new Node(9,null));
-//        printArrayList(list);
-
-//        int array [] [] = {{5,6,7,8}, {6,7,8}, {7,8,9}};
-//
-//        //Arrays.toString(array);
-////        for(int i = 0; i < array.length; i++){
-////            System.out.println(array[i]);
-////        }
-//
-//        System.out.println(Arrays.toString(array));
-//        System.out.println(Arrays.deepToString(array));
-
-        // Manipulating AR
-
-        /*********  Manipulating Linked Lists
-        Node fifth = new Node(5, null);
-        Node fourth = new Node(4, fifth);
-        Node third = new Node(3, fourth);
-        Node second = new Node(2, third);
-        Node first = new Node(1, second);
-
-        Integer numNodes = countNodes(first);
-        print("Number of nodes: " + numNodes.toString());
-        printList(first);
-        print("===Removing Node====");
-        removeNthNode(first, 3);
-        numNodes = countNodes(first);
-        print("Number of nodes: " + numNodes.toString());
-        printList(first);
-        print("===Adding Node  7 ====");
-        addNode(first, 7, 3);
-        numNodes = countNodes(first);
-        print("Number of nodes: " + numNodes.toString());
-        printList(first);
-
-        */
-
-//        revertList(null, first);
-//
-//        printList(fifth);
-       // print("=======");
-
-
-
-
         /**
-         * Using LinkedList Library, learning about using built in functions like .get .set
-         *                           how to use an iterator of a collection  list.iterator(), it.hasNext, it.next
-         *                           always do the casting to the right type when you fetch the value   (String)
+         * print(containsUniqueChars("abcd efg hijk"));
+         * print("Largest path is: " + findLargestPath());
+         * print(getOverlapLength("abcd", "cda"));
+         * print(getOverlapLength("ABCDEF", "BCDEFASFDSADF"));
+         * print(getStates("ab", "abc"));
+         * print(isPermutation("ABCD", "DCBAA"));
          */
 
-//        List<Nod2> list2 = new LinkedList<Nod2>();
-//
-//
-//        list2.add(new Nod2('a'));
-//        list2.add(new Nod2('b'));
-//        list2.add(new Nod2('c'));
-//        list2.add(new Nod2('d'));
-//
-//        Iterator<Nod2> it = list2.iterator();
-
-       // System.out.println(list2);
-
-//        while(it.hasNext()){
-//            Nod2 n = it.next();
-//            if(n.data == 'b'){
-//                System.out.println("REMOVING B");
-//                it.remove();
-//            }
-//            System.out.println(n.data);
-//        }
-//
-//        it = list2.iterator();
-//        while(it.hasNext()){
-//            Nod2 n = it.next();
-//            System.out.println(n.data);
-//        }
-//        System.out.println("============");
-//        list2.get(2).data = 'C';
-//
-//        list2.set(2, second.data);
-//
-//        it = list2.iterator(); //--> resetting iterator
-//
-//        while(it.hasNext()){
-//            Nod2 n = it.next();
-//            System.out.println(n.data);
-//        }
-//
-//        System.out.println("============");
-//        List<String> strings = new LinkedList<>();
-//
-//        strings.add("aa");
-//        strings.add("bb");
-//        strings.add("cc");
-//        strings.set(1, "CC");
-//        strings.remove(2);
-//        System.out.println(strings.get(1).);
 
 
 
-        //System.out.println(list2.get(2).data);
-
-
-//        list.add(ten);
-//        list.add(nine);
-//        list.add(eight);
-//        list.add(seven);
-//        list.add(six);
-//        System.out.println(list.toString());
-//        printList(six);
-//
-//
-//
-//        printList(six);
 
     }
 }
